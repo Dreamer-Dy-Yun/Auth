@@ -10,16 +10,18 @@
   <pre id="code">코드 수신 대기 중...</pre>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-    const state = urlParams.get('state');
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      const output = document.getElementById("code");
 
-    if (code) {
-      document.getElementById("code").textContent = code;
-      console.log("인증 코드:", code);
-    } else {
-      document.getElementById("code").textContent = "code 파라미터가 없습니다.";
-    }
+      if (code) {
+        output.textContent = code;
+      } else {
+        output.textContent = "code 파라미터가 없습니다.";
+      }
+    };
   </script>
 </body>
 </html>
