@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>카페24 OAuth 인증 코드 수신</title>
+</head>
+<body>
+  <h2>✅ 카페24 인증 완료</h2>
+  <p><strong>Authorization Code:</strong></p>
+  <pre id="code">코드 수신 대기 중...</pre>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    const state = urlParams.get('state');
+
+    if (code) {
+      document.getElementById("code").textContent = code;
+      console.log("인증 코드:", code);
+    } else {
+      document.getElementById("code").textContent = "code 파라미터가 없습니다.";
+    }
+  </script>
+</body>
+</html>
